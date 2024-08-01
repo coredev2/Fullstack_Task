@@ -7,7 +7,7 @@ Responsive Login and Sign up pages utilizing Authentication, Validation and Live
 ## Setup Instructions
 
 ### Clone the Repository
-#### `git clone https://github.com/coredev2/Fullstack_Task/`
+#### `git clone https://github.com/coredev2/Fullstack_Task.git`
 #### `cd Fullstack_task`
 
 ### Install Dependencies

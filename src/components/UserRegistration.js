@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Parse from 'parse/dist/parse.min.js';
 import { Button, Divider, Input, message } from 'antd';
 import env from "react-dotenv";
+import { useNavigate } from 'react-router-dom';
 
 Parse.initialize(env.PARSE_APPLICATION_ID, env.PARSE_JAVASCRIPT_KEY);
 Parse.serverURL = env.PARSE_HOST_URL;
@@ -11,6 +12,7 @@ export const UserRegistration = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
+  const navigate = useNavigate();
 
   const validateEmail = (email) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -18,7 +20,7 @@ export const UserRegistration = () => {
   };
 
   const validatePassword = (password) => {
-    const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+    const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     return re.test(password);
   };
 
@@ -33,7 +35,7 @@ export const UserRegistration = () => {
     }
 
     if (!validatePassword(passwordValue)) {
-      message.error('Password must be at least 8 characters long and include uppercase, lowercase, and a number.');
+      message.error('Password must be at least 8 characters long and include uppercase, lowercase, one special character and a number.');
       return false;
     }
 
@@ -42,6 +44,7 @@ export const UserRegistration = () => {
         email: emailValue,
       });
       alert(`Success! User ${createdUser.getUsername()} was successfully created!`);
+      navigate('/barchart')
       return true;
     } catch (error) {
       alert(`Error! ${error}`);

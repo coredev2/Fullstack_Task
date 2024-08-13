@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.13.0",
+    "@emotion/styled": "^11.13.0",
+    "@mui/x-charts": "^7.12.1",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -20,8 +23,8 @@
   },
   "scripts": {
     "start": "react-dotenv && react-scripts start",
-    "build": "react-dotenv && react-scripts build", 
-    "serve": "react-dotenv && serve build", 
+    "build": "react-dotenv && react-scripts build",
+    "serve": "react-dotenv && serve build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -43,7 +46,12 @@
     ]
   },
   "react-dotenv": {
-    "whitelist": ["PARSE_HOST_URL","PARSE_APPLICATION_ID","PARSE_JAVASCRIPT_KEY","LIVE_SERVER_URL"]
+    "whitelist": [
+      "PARSE_HOST_URL",
+      "PARSE_APPLICATION_ID",
+      "PARSE_JAVASCRIPT_KEY",
+      "LIVE_SERVER_URL"
+    ]
   },
   "devDependencies": {
     "@types/parse": "^3.0.9"
